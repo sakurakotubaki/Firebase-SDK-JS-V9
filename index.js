@@ -65,3 +65,17 @@ const savaData = () => {
       console.error("Error adding document: ", error);
     });
 };
+
+// FireStoreのデータを表示するメソッド
+const readData = () => {
+  db.collection('users')
+  .get()
+  .then((data) => {
+    /** mapで新しい配列を生成する。スプレッド演算子で(...)で配列のようなオブジェクトを配列に変換する。
+    配列.map(コールバック関する) コールバック関数によって新しい配列を生成する
+    [...変換対象] 配列に変化する **/
+    console.log(data.docs.map((item) => {
+      return {...item.data()}
+    }))
+  })
+}
