@@ -75,7 +75,19 @@ const readData = () => {
     配列.map(コールバック関する) コールバック関数によって新しい配列を生成する
     [...変換対象] 配列に変化する **/
     console.log(data.docs.map((item) => {
-      return {...item.data()}
+      // uuidを取得できるように修正
+      return {...item.data(), id: item.id}
     }))
+  })
+}
+// FireStoreのデータを更新するメソッド
+const updateData = () => {
+  db.collection('users').doc('5tUUxyfthbw57W65w08l')
+  .update({
+    email: 'JboySan@gamil.com',
+    password: '123456789'
+  })
+  .then(() => {
+    alert('Data Updated')
   })
 }
