@@ -91,3 +91,10 @@ const updateData = () => {
     alert('Data Updated')
   })
 }
+// FireStoreのデータを削除するメソッド
+const deleteData = () => {
+  db.collection('users').doc('7NmQSxtG5Qtv28YWKnhq').delete()
+  .then(() => {
+    alert('Data Deleted')
+  })
+}
