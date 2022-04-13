@@ -24,7 +24,25 @@ const register = () => {
     console.log(res.user)
   })
   .catch((err) => {
+    // ダイアログが表示されるようにする
+    alert(err.message)
     console.log(err.code)
     console.log(err.user)
   })
 };
+
+const login = () => {
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  auth.signInWithEmailAndPassword(email, password)
+  .then((res) => {
+    console.log(res.user)
+  })
+  .catch((err) => {
+    // ダイアログが表示されるようにする
+    alert(err.message)
+    console.log(err.code)
+    console.log(err.user)
+  })
+}
